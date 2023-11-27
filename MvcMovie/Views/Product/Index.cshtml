@@ -1,0 +1,86 @@
+@model IEnumerable<Product>
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        color: #333;
+    }
+
+    tr:hover {
+        background-color: #f9f9f9;
+    }
+
+    .actions {
+        white-space: nowrap;
+    }
+</style>
+
+<!-- Add the panel view here -->
+<div class="panel panel-default">
+    <div class="panel-heading">Summary Information</div>
+    <div class="panel-body">
+        <p>Total value of warehouse: @ViewBag.WarehouseValue</p>
+        <p>Total units in warehouse: @ViewBag.WarehouseUnits</p>
+        <p>Category summary:</p>
+        <ul>
+            @foreach (var category in ViewBag.CategorySummary)
+            {
+                <li>@category.Name: Value=@category.Value Units=@category.Units</li>
+            }
+        </ul>
+    </div>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="8">
+                <a href="@Url.Action("Create", "Product")" class="btn btn-success">Create</a>
+            </th>
+        </tr>
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Quantity</th>
+            <th>Unit of Measure</th>
+            <th>Unit Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Code</td>
+                <td>@product.Name</td>
+                <td>@product.Description</td>
+                <td>@product.Category</td>
+                <td>@product.Quantity</td>
+                <td>@product.UnitOfMeasure</td>
+                <td>@product.UnitPrice</td>
+                <td class="actions">
+                    @Html.ActionLink("Edit", "Edit", new { id = product.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Delete", "Delete", new { id = product.Id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<button class="btn btn-danger" onclick="location.href='@Url.Action("Delete", "User")'">Delete User</button>
+
+<button class="btn btn-primary" onclick="location.href='@Url.Action("Login", "User")'">Logout</button>

@@ -1,0 +1,96 @@
+@model Product
+
+<style>
+    .form-container {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    textarea {
+        height: 100px;
+    }
+
+    .validation-error {
+        color: red;
+    }
+
+    button[type="submit"] {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+</style>
+
+<div class="form-container">
+    @using (Html.BeginForm("Create", "Product", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.LabelFor(model => model.Code)
+            @Html.TextBoxFor(model => model.Code)
+            <span class="validation-error">@Html.ValidationMessageFor(model => model.Code)</span>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name)
+            @Html.TextBoxFor(model => model.Name)
+            <span class="validation-error">@Html.ValidationMessageFor(model => model.Name)</span>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description)
+            @Html.TextAreaFor(model => model.Description)
+            <span class="validation-error">@Html.ValidationMessageFor(model => model.Description)</span>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Category)
+            @Html.TextBoxFor(model => model.Category)
+            <span class="validation-error">@Html.ValidationMessageFor(model => model.Category)</span>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Quantity)
+            @Html.TextBoxFor(model => model.Quantity)
+            <span class="validation-error">@Html.ValidationMessageFor(model => model.Quantity)</span>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UnitOfMeasure)
+            @Html.TextBoxFor(model => model.UnitOfMeasure)
+            <span class="validation-error">@Html.ValidationMessageFor(model => model.UnitOfMeasure)</span>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UnitPrice)
+            @Html.TextBoxFor(model => model.UnitPrice)
+            <span class="validation-error">@Html.ValidationMessageFor(model => model.UnitPrice)</span>
+        </div>
+
+        <button type="submit">Create</button>
+    }
+</div>

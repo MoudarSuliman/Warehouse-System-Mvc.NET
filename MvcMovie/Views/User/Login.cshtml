@@ -1,0 +1,21 @@
+﻿@model User
+@using (Html.BeginForm("Login", "User", FormMethod.Post))
+{
+    <div class="loginer-container">
+        <h2>Login</h2>
+        <div class="form-group">
+            <label for="username">Username</label>
+            @Html.TextBoxFor(model => model.Username, new { @class = "form-control", placeholder = "Enter your username" })
+            @Html.ValidationMessageFor(model => model.Username)
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "Enter your password" })
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+        <p class="login-link">Don't have an account? <a href="/User/Register">Register here</a></p>
+    </div>
+}

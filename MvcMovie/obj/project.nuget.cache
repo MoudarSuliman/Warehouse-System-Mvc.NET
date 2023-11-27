@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "rmaukU6nUF/HAaWzVvhXoDvrQaz0SY0sUptJ0pzSUPs/HFj0KhFQHa1o8fQI+MjR3s09P0GHkN7N6253PnW5oA==",
+  "success": true,
+  "projectFilePath": "D:\\EGUI\\LAB2\\MvcMovie\\MvcMovie.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\mudar\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
